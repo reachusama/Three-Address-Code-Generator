@@ -1,0 +1,23 @@
+stmt : VariableDecleration | ConditionalStatments | Operation | Iterators  
+
+VariableDecleration : simpleDeclare | declareWithoutKeyword | declareWithKeyword 
+simpleDeclare : var ID ; 
+
+declareWithoutKeyword : declareWithoutKeywordIdentifier | declareWithoutKeywordConstant 
+declareWithoutKeywordIdentifier : ID = ID ;  
+declareWithoutKeywordConstant : ID = Constant ; 
+
+declareWithKeyword : declareWithKeywordIdentifier | declareWithKeywordConstant 
+declareWithKeywordIdentifier : var ID = ID ; 
+declareWithKeywordConstant : var ID = Constant ; 
+
+ApplyCondition : Constant symbol Constant 
+symbol : == | != | <= | >= | > | < 
+
+ConditionalStatments : ifAndElseStatment 
+ifAndElseStatment : if ( ApplyCondition ) { } else { } 
+
+Iterators : forLoop | whileLoop | doWhileLoop 
+whileLoop : while ( ApplyCondition ) { } 
+doWhileLoop : do { } while ( ApplyCondition ) ; 
+forLoop : for ( ) { } 
